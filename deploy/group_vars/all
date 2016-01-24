@@ -1,7 +1,7 @@
 ---
 site:
   domain: energyportal.co.il
-  subdomain: lp2
+  subdomain: lp3
   make_alias: false
   root: lp2
   username: "energy_manager"
