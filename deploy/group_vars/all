@@ -3,7 +3,7 @@ site:
   domain: energyportal.co.il
   subdomain: lp3
   make_alias: false
-  root: lp2
+  root: lp3
   username: "energy_manager"
   caracal_branch: develop
   ip_address: 198.251.79.73
