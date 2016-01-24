@@ -6,45 +6,74 @@
  * Authors:Tal Reznic
  */
 
- section#form_wrap {
+div#footer_form,
+section#form_wrap {
  	display: block;
- 	padding-top: 10px;
  	padding-bottom: 10px;
  	text-align: center;
- 	background-color: @color_ac_orange;
- }
+ 	background-color: @color_ac_grey;
+}
 
- section#form_wrap p {
+div#footer_form {
+ 	background-color: @color_ac_black;
+}
+
+div#footer_form p,
+section#form_wrap p {
  	margin: 0px;
  	margin-left: auto;
  	margin-right: auto;
+ 	padding-top: 10px;
+ 	padding-bottom: 10px;
  	color: #ffffff;
+ 	background-color: @color_ac_orange;
  	font-weight: 700;
  	font-size: 1.3em;
- 	padding-bottom: 30px;
- 	width: 95%;
+ 	width: 100%;
  }
 
+ div#footer_form p {
+ 	background-color: @color_ac_black;
+ }
+
+div#footer_form form,
 section#form_wrap form {
 	display: block;
 }
 
+div#footer_form form label,
 section#form_wrap form label {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
-	width: calc(~'(95% - 40px)');
+	position: relative;
+	width: 90%;
+}
+
+div#footer_form form label span,
+section#form_wrap form label span {
+	display: block;
 	padding-right: 40px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: right;
+	color: @color_ac_black;
 	position: relative;
 }
 
-section#form_wrap form label:before {
+div#footer_form form label span {
+	color: @color_ac_text;
+}
+
+div#footer_form form label span:before,
+section#form_wrap form label span:before {
 	content: "";
 	position: absolute;
-	top: -6px;
+	top: 50%;
+	margin-top: -25px;
 	right: 2px;
-	background-image: url(../images/form-icons.svg);
+	background-image: url(../images/form-icons-mobile.svg);
 	background-repeat: no-repeat;
 	background-position: -120px 0px;
 	background-size: 200px 50px;
@@ -52,76 +81,126 @@ section#form_wrap form label:before {
 	height: 50px;
 }
 
-section#form_wrap form label:nth-of-type(2):before {
+div#footer_form form label span:before {
+	background-image: url(../images/form-icons.svg);
+}
+
+div#footer_form form label:nth-of-type(2) span:before,
+section#form_wrap form label:nth-of-type(2) span:before {
 	background-position: -70px 0px;
 }
 
-section#form_wrap form label:nth-of-type(3):before {
+div#footer_form form label:nth-of-type(3) span:before,
+section#form_wrap form label:nth-of-type(3) span:before {
 	background-position: -20px 0px;
 }
 
-section#form_wrap form label span {
-	display: inline-block;
-	vertical-align: middle;
-	text-align: right;
-	color: @color_ac_text;
-	width: 50px;
-}
-
+div#footer_form form label input,
 section#form_wrap form label input {
-	display: inline-block;
-	vertical-align: middle;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	display: block;
+	padding-right: 5px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	border: none;
-	background-color: transparent;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.49);
-	color: @color_ac_text;
+	background-color: fade(@color_ac_text,60%);
+	border: 1px solid @color_ac_black;
+	color: @color_ac_black;
+	width:  calc(~'(100% - 5px)');
 	transition:all 0.3s;
-	width: 250px;
 }
 
-section#form_wrap form label input:focus {
-	 border-bottom: 1px solid lighten(@color_ac_text,0%);
-}
-
-section#form_wrap form label input:hover {
-	 border-bottom: 1px solid lighten(@color_ac_text,30%);
-}
-
+div#footer_form form div.controls,
 section#form_wrap form div.controls {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 20px;
+	width: 80%;
 	position: relative;
-	width: 95%;
 }
 
-form div.controls button {
-	padding-top: 13px;
-	padding-bottom: 13px;
+div#footer_form form div.controls button,
+section#form_wrap form div.controls button {
+	padding-top: 18px;
+	padding-bottom: 18px;
 	padding-left: 35px;
 	padding-right: 35px;
-	background-color: @color_ac_text;
+	background:linear-gradient(to bottom, rgba(81,174,67,1) 0%,rgba(64,137,53,1) 100%);
 	border: none;
-	border: 1px solid @color_ac_text;
+	border-radius: 15px;
 	font-size: 1.3em;
 	line-height: 100%;
-	color: @color_ac_orange;
+	color: @color_ac_text;
 	cursor: pointer;
 	position: relative;
+	z-index: 0;
 	transition: all 0.3s;
-	width: 55%;
+	width: 90%;
 }
 
-form div.controls button:hover {
-	background-color: @color_ac_orange;
-	color: @color_ac_text;
+div#footer_form form div.controls:hover:before,
+section#form_wrap form div.controls button:hover:before {
+	opacity: 1;
 }
 
+div#footer_form form div.controls button:before,
+section#form_wrap form div.controls button:before {
+	content: "";
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom, rgba(64,137,53,1) 0%,rgba(81,174,67,1) 100%);
+	border-radius: 15px;
+	z-index: -1;
+	opacity: 0;
+	transition: all 0.3s;
+}
+
+
+section#about,
 section#features {
 	display: block;
 	text-align: center;
+	padding-bottom: 20px;
+}
+
+section#features {
+	background-color: @color_ac_orange;
+}
+
+section#about h2 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+	font-weight: 700;
+}
+
+section#about p {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+	color: @color_ac_blue;
+	font-size: 1.5em;
+}
+
+section#about span.slogen {
+	display: inline-block;
+	font-size: 2em;
+	color: @color_ac_orange;
+	font-weight: 900;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	padding-left: 20px;
+	padding-right: 20px;
+	line-height: 100%;
+
+	background-image: url(../images/orange-circle.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100%;
 }
 
 section#features h2 {
@@ -138,51 +217,28 @@ section#features ul {
 	list-style-type: none;
 }
 
+section#features ul {
+	margin: 0px;
+	padding: 0px;
+	padding-top: @vertical_spacing;
+	list-style-type: none;
+}
+
 section#features ul li {
-	display: block;
-	padding-top: 150px;
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
 	position: relative;
 }
 
-section#features ul li:before {
-	content: "";
-	position: absolute;
-	top: 0px;
-	left: 50%;
-	margin-left: -75px;
-
-	background-image: url(../images/icons-sprite.svg);
-	background-repeat: no-repeat;
-	background-position: -600px 0px ;
-	background-size: 750px 150px;
-
-	width: 150px;
-	height: 150px;
-}
-
-section#features ul li:first-of-type:before {
-	background-position: 150px 0px;
-}
-
-section#features ul li:nth-of-type(4):before {
-	background-position: -450px 0px;
-}
-
-section#features ul li:nth-of-type(3):before {
-	background-position: -300px 0px;
-}
-
-section#features ul li:nth-of-type(2):before {
-	background-position:  0px 0px;
-}
-
-section#features ul li:nth-of-type(1):before {
-	background-position: -150px 0px;
+section#features ul li svg {
+	width: 100px;
+	height: 100px;
+	fill: @color_ac_text;
 }
 
 section#features ul li h4 {
-	margin-left: auto;
-	margin-right: auto;
-	color: darken(@color_text,10%);
-	width: 80%;	
+	color: @color_ac_text;
+	padding-left: 10px;
+	padding-right: 10px;
 }

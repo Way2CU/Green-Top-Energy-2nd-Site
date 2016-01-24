@@ -12,62 +12,141 @@
 	padding-bottom: 10px;
 	text-align: center;
 	position: relative;
-	min-height: 680px;
+	min-height: 730px;
 }
 
-header > img {
+footer div#top div.footer_content,
+header div.header_content {
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 60%;
-}
-
-header h1 {
 	margin-left: auto;
 	margin-right: auto;
 	width: 95%;
+	text-align: center;
+}
+
+footer div#top div.footer_content {
+	display: block;
+	padding-right: 0px;
+}
+
+footer div#top div.footer_content > img,
+header div.header_content > img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+}
+
+footer div#top div.footer_content h2,
+header div.header_content h1 {
+	margin: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 1.8em;
+}
+
+footer div#top div.footer_content h2 {
+	color: @color_ac_black;
+}
+
+header div.header_content h1 strong {
+	font-size: 1em;
+}
+
+footer div#top div.footer_content span,
+footer div#top div.footer_content p,
+header div.header_content span,
+header div.header_content p {
+	display: block;
+	margin: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	font-size: 1.5em;
+	color: @color_ac_blue;
+	position: relative;
+}
+
+footer div#top div.footer_content span,
+footer div#top div.footer_content p {
+	color: @color_ac_black;
+}
+
+footer div#top div.footer_content p,
+header div.header_content p {
 	font-weight: 700;
 }
 
-header h1 strong {
-	display: block;
-	font-size: 2em;
-
+footer div#top div.footer_content span,
+header div.header_content span {
+	color: @color_ac_black;
+	margin-bottom: 5px;
 }
 
-header a.phone {
+header div.header_content svg.arrow{
 	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 80px;
+	height: 80px;
+}
+
+footer div#top div.footer_content a.phone,
+header div.header_content a.phone {
+	display: inline-block;
+	vertical-align: middle;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 30px;
 	padding-right: 30px;
-	line-height: 1.7em;
-	font-size: 1.7em;
+	line-height: 2em;
+	font-size: 1.5em;
 	font-weight: 700;
 	text-decoration: none;
 	box-shadow: 0px 0px 8px @color_text;
 	color: @color_ac_text;
 	background:linear-gradient(to bottom, rgba(81,174,67,1) 0%,rgba(64,137,53,1) 100%);
+	border-radius: 15px;
 	transition: all 0.3s;
 	position: relative;
 	z-index: 0;
 }
 
-header a.phone img {
-	display: inline-block;
-	vertical-align: middle;
-	padding-right: 5px;
-	width: 30px;
-	height: 30px;
+footer div#top div.footer_content a.phone:hover:before,
+header div.header_content a.phone:hover:before {
+	opacity: 1;
 }
 
-header figure {
+footer div#top div.footer_content a.phone:before,
+header div.header_content a.phone:before {
+	content: "";
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	height: 700px;
+	height: 100%;
+	background: linear-gradient(to bottom, rgba(64,137,53,1) 0%,rgba(81,174,67,1) 100%);
+	border-radius: 15px;
+	opacity: 0;
+	z-index: -1;
+	transition: all 0.3s;
+}
+
+footer div#top div.footer_content a.phone img,
+header div.header_content a.phone img {
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 5px;
+	width: 40px;
+	height: 40px;
+}
+
+header figure {
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	width: 100%;
+	height: 750px;
 	opacity: 0;
 	visibility: hidden;
 	z-index: -1;

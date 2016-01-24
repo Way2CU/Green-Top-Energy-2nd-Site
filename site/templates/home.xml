@@ -10,21 +10,53 @@
 		</head>
 
 		<body class="$language_rtl ? 'rtl' : 'ltr'" cms:eval="class">
+			<cms:svg file="site-sprite.svg"/>
 			<header>
-				<img src="_BASEURL.'/site/images/logo.svg'"  alt="logo" cms:eval="src"/>
+				<div class="header_content">
+					<img src="_BASEURL.'/site/images/logo.svg'"  alt="logo" cms:eval="src"/>
 
-				<h1><cms:text constant="title_header"/></h1>
+					<h1><cms:text constant="title_header"/></h1>
 
-				<a
-					href="'tel:'.urlencode(Language::getText('phone'))"
-					cms:eval="href"
-					class="phone"
-					>
-					<cms:text constant="phone"/>
-					<img src="_BASEURL.'/site/images/phone-circle.svg'"  alt="phone" cms:eval="src"/>
-				</a>
+					<p><cms:text constant="subtitle_header"/></p>
+
+					<cms:desktop>
+						<span>
+							<cms:text constant="call_to_action_text"/>
+								<svg class="arrow">
+									<use
+										href="#arrow"
+										xlink:href="site/images/site-sprite.svg#arrow"
+										/>
+								</svg>
+						</span>
+					</cms:desktop>
+
+					<cms:mobile>
+						<span>
+							<cms:text constant="call_to_action_text"/>
+						</span>
+					</cms:mobile>
+
+					<a
+						href="'tel:'.urlencode(Language::getText('phone'))"
+						cms:eval="href"
+						class="phone"
+						>
+						<cms:text constant="phone"/>
+						<img src="_BASEURL.'/site/images/phone-circle.svg'"  alt="phone" cms:eval="src"/>
+					</a>
+				</div>
 
 				<cms:desktop>
+					<section id="form_wrap">
+						<p><cms:text constant="title_form"/></p>
+						<cms:module
+							name="contact_form"
+							action="show"
+							text_id="contact"
+							/>
+					</section>
+
 					<cms:module
 						name="gallery"
 						action="show_image_list"
@@ -44,18 +76,30 @@
 
 			</header>
 
-			<section id="form_wrap">
-				<p><cms:text constant="title_form"/></p>
+			<cms:mobile>
+				<section id="form_wrap">
+					<p><cms:text constant="title_form"/></p>
+					<cms:module
+						name="contact_form"
+						action="show"
+						text_id="contact"
+						/>
+				</section>
+			</cms:mobile>
+
+			<section id="about">
 				<cms:module
-					name="contact_form"
+					name="articles"
 					action="show"
-					text_id="contact"
+					text_id="about"
+					template="parts/article_about.xml"
 					/>
+
+				<span class="slogen"><cms:text constant="slogen"/></span>	
+		
 			</section>
 
 			<section id="features">
-				<h2><cms:text constant="title_features"/></h2>
-
 				<ul>
 					<cms:module
 						name="articles"
@@ -64,16 +108,55 @@
 						template="stock/features_generic.xml"
 						>
 						<param name="title" value=""/>
+						<param name="sprite" value="site/images/site-sprite.svg"/>
 					</cms:module>	
 				</ul>
+
 			</section>
 
 			<footer>
 				<div id="top">
-					<img src="_BASEURL.'/site/images/logo-white.svg'"  alt="logo" cms:eval="src"/>
-					<h2><cms:text constant="title_footer"/></h2>
+					<div class="footer_content">
+							<img src="_BASEURL.'/site/images/logo.svg'"  alt="logo" cms:eval="src"/>
+
+							<h2><cms:text constant="title_footer"/></h2>
+
+							<p><cms:text constant="subtitle_header"/></p>
+
+							<span><cms:text constant="call_to_action_text"/></span>
+
+							<a
+								href="'tel:'.urlencode(Language::getText('phone'))"
+								cms:eval="href"
+								class="phone"
+								>
+								<cms:text constant="phone"/>
+								<img src="_BASEURL.'/site/images/phone-circle.svg'"  alt="phone" cms:eval="src"/>
+							</a>
+					</div>
+					<cms:desktop>
+						<div id="footer_form">
+							<p><cms:text constant="title_footer_form"/></p>
+							<cms:module
+								name="contact_form"
+								action="show"
+								text_id="contact"
+								/>
+						</div>
+					</cms:desktop>
 				</div>
 
+				<cms:mobile>
+					<div id="footer_form">
+						<p><cms:text constant="title_footer_form"/></p>
+						<cms:module
+							name="contact_form"
+							action="show"
+							text_id="contact"
+							/>
+					</div>
+				</cms:mobile>	
+			
 				<cms:template file="stock/copyright.xml">
 					<param name="holder" value="copyright_holder"/>
 					<param name="text" value="copyright_text"/>

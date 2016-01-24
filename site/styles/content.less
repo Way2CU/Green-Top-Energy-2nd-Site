@@ -6,121 +6,49 @@
  * Authors:Tal Reznic
  */
 
-section#form_wrap {
-	display: block;
-	text-align: center;
-	padding: 20px calc(~'(100% - 1200px) / 2');
-	background-color: @color_ac_orange;
-}
-
-section#form_wrap p {
-	font-size: 1.8em;
-	color: #ffffff;
-	font-weight: 700;
-	margin: 0px;
-	padding-bottom: 30px;
-}
-
-section#form_wrap form {
-	display: block;
-}
-
-section#form_wrap form label {
-	display: inline-block;
-	vertical-align: top;
-	margin-left: 10px;
-	margin-right: 10px;
-	padding-right: 40px;
-	position: relative;
-}
-
-section#form_wrap form label:before {
-	content: "";
-	position: absolute;
-	top: -6px;
-	right: 2px;
-	background-image: url(../images/form-icons.svg);
-	background-repeat: no-repeat;
-	background-position: -120px 0px;
-	background-size: 200px 50px;
-	width: 50px;
-	height: 50px;
-}
-
-section#form_wrap form label:nth-of-type(2):before {
-	background-position: -70px 0px;
-}
-
-section#form_wrap form label:nth-of-type(3):before {
-	background-position: -20px 0px;
-}
-
-section#form_wrap form label  span {
-	color: @color_ac_text;
-}
-
-section#form_wrap form label input {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 10px;
-	margin-left: 5px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	border: none;
-	background-color: transparent;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.49);
-	color: @color_ac_text;
-	width:calc(220px - 40px);
-	transition:all 0.3s;
-}
-
-section#form_wrap form label input:focus {
-	border-bottom: 1px solid lighten(@color_ac_text,0%);
-}
-
-section#form_wrap form label input:hover {
-	border-bottom: 1px solid lighten(@color_ac_text,30%);
-}
-
-section#form_wrap form div.controls {
-	display: inline-block;
-	vertical-align: middle;
-	position: relative;
-}
-
-section#form_wrap form div.controls button {
-	margin-right: 20px;
-	padding-top: 14px;
-	padding-bottom: 14px;
-	padding-left: 35px;
-	padding-right: 35px;
-	background-color: @color_ac_text;
-	border: none;
-	border: 1px solid @color_ac_text;
-	font-size: 1.3em;
-	line-height: 100%;
-	color: @color_ac_orange;
-	cursor: pointer;
-	position: relative;
-	transition: all 0.3s;
-}
-
-section#form_wrap form div.controls button:hover {
-	background-color: @color_ac_orange;
-	color: @color_ac_text;
-}
-
+section#about, 
 section#features {
 	display: block;
 	text-align: center;
 	padding: @vertical_spacing calc(~'(100% - 1200px) / 2');
 }
 
-section#features h2 {
+section#features {
+	background-color: @color_ac_orange;
+}
+
+section#about h2 {
 	margin-left: auto;
 	margin-right: auto;
 	width: 900px;
 	font-weight: 700;
+}
+
+section#about p {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 850px;
+	color: @color_ac_blue;
+	font-size: 1.5em;
+}
+
+section#about span.slogen {
+	display: inline-block;
+	width: 400px;
+	font-size: 3em;
+	color: @color_ac_orange;
+	font-weight: 900;
+	padding-top: 80px;
+	padding-bottom: 80px;
+	padding-left: 65px;
+	padding-right: 65px;
+	line-height: 100%;
+
+	background-image: url(../images/orange-circle.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100%;
 }
 
 section#features ul {
@@ -133,49 +61,18 @@ section#features ul {
 section#features ul li {
 	display: inline-block;
 	vertical-align: top;
-	padding-top: 150px;
 	width: 20%;
 	position: relative;
 }
 
-section#features ul li:before {
-	content: "";
-	position: absolute;
-	top: 0px;
-	left: 50%;
-	margin-left: -75px;
-
-	background-image: url(../images/icons-sprite.svg);
-	background-repeat: no-repeat;
-	background-position: -600px 0px ;
-	background-size: 750px 150px;
-
-	width: 150px;
-	height: 150px;
-}
-
-section#features ul li:first-of-type:before {
-	background-position: 150px 0px;
-}
-
-section#features ul li:nth-of-type(4):before {
-	background-position: -450px 0px;
-}
-
-section#features ul li:nth-of-type(3):before {
-	background-position: -300px 0px;
-}
-
-section#features ul li:nth-of-type(2):before {
-	background-position:  0px 0px;
-}
-
-section#features ul li:nth-of-type(1):before {
-	background-position: -150px 0px;
+section#features ul li svg {
+	width: 100px;
+	height: 100px;
+	fill: @color_ac_text;
 }
 
 section#features ul li h4 {
-	color: darken(@color_text,10%);
+	color: @color_ac_text;
 	padding-left: 10px;
 	padding-right: 10px;
 }
@@ -185,15 +82,30 @@ section#features ul li h4 {
 @media only screen   and (min-device-width: 768px)   and (max-device-width: 1024px) {
 
 header {
-	padding: @vertical_spacing calc(~'(100% - 900px) / 2');
+	padding: 0px calc(~'(100% - 900px) / 2');
+	min-height: 700px;
 }
 
-header h1 {
+footer div#top div.footer_content,
+header div.header_content {
+	width: 450px;
+}
+
+header div.header_content {
+	padding-right: 0px;
+}
+
+header div.header_content span svg.arrow {
+	left: 85%;
+}
+
+footer div#top div.footer_content h2, 
+header div.header_content h1 {
 	font-size: 2em;
 }
 
 header figure {
-	background-position: -200px top;
+	background-position: -300px top;
 }
 
 section#form_wrap form label input {

@@ -8,28 +8,83 @@
 
 header {
 	display: block;
-	padding: @vertical_spacing calc(~'(100% - 1200px) / 2');
+	padding: 0px calc(~'(100% - 1200px) / 2');
+	padding-top: 20px;
 	position: relative;
-	min-height: 600px;
+	min-height: 680px;
 }
 
-header > img {
+footer div#top div.footer_content,
+header div.header_content {
 	display: block;
-	width: 40%;
+	padding-right: 85px;
+	text-align: center;
+	width: 650px;
 }
 
-header h1 {
-	font-size: 3em;
-}
-
-header h1 strong {
-	display: block;
-	font-size: 2em;
-}
-
-header a.phone {
+footer div#top div.footer_content {
 	display: inline-block;
-	margin-right: 250px;
+	vertical-align: top;
+	padding-right: 0px;
+}
+
+footer div#top div.footer_content > img,
+header div.header_content > img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+}
+
+footer div#top div.footer_content h2,
+header div.header_content h1 {
+	font-size: 2.5em;
+}
+
+footer div#top div.footer_content h2 {
+	color: @color_ac_black;
+}
+
+header div.header_content h1 strong {
+	font-size: 1em;
+}
+
+footer div#top div.footer_content span,
+footer div#top div.footer_content p,
+header div.header_content span,
+header div.header_content p {
+	display: block;
+	font-size: 1.8em;
+	color: @color_ac_blue;
+	position: relative;
+}
+
+footer div#top div.footer_content span,
+footer div#top div.footer_content p {
+	color: @color_ac_black;
+}
+
+footer div#top div.footer_content p,
+header div.header_content p {
+	font-weight: 700;
+}
+
+footer div#top div.footer_content span,
+header div.header_content span {
+	color: @color_ac_black;
+	margin-bottom: 0.5em;
+}
+
+header div.header_content span svg.arrow{
+	position: absolute;
+	top: 0px;
+	left: 75%;
+	width: 20%;
+}
+
+footer div#top div.footer_content a.phone,
+header div.header_content a.phone {
+	display: inline-block;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 30px;
@@ -41,16 +96,19 @@ header a.phone {
 	box-shadow: 0px 0px 8px @color_text;
 	color: @color_ac_text;
 	background:linear-gradient(to bottom, rgba(81,174,67,1) 0%,rgba(64,137,53,1) 100%);
+	border-radius: 15px;
 	transition: all 0.3s;
 	position: relative;
 	z-index: 0;
 }
 
-header a.phone:hover:before {
+footer div#top div.footer_content a.phone:hover:before,
+header div.header_content a.phone:hover:before {
 	opacity: 1;
 }
 
-header a.phone:before {
+footer div#top div.footer_content a.phone:before,
+header div.header_content a.phone:before {
 	content: "";
 	position: absolute;
 	top: 0px;
@@ -58,19 +116,141 @@ header a.phone:before {
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(to bottom, rgba(64,137,53,1) 0%,rgba(81,174,67,1) 100%);
+	border-radius: 15px;
 	opacity: 0;
 	z-index: -1;
 	transition: all 0.3s;
 }
 
-
-
-header a.phone img {
+footer div#top div.footer_content a.phone img,
+header div.header_content a.phone img {
 	display: inline-block;
 	vertical-align: middle;
 	padding-right: 5px;
 	width: 40px;
 	height: 40px;
+}
+
+section#form_wrap {
+	position: absolute;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	text-align: center;
+	background-color: fade(@color_ac_black, 70%);
+}
+
+section#form_wrap p {
+	font-size: 1.8em;
+	color: #ffffff;
+	font-weight: 700;
+	margin: 0px;
+	padding-bottom: 30px;
+}
+
+section#form_wrap form {
+	display: block;
+}
+
+section#form_wrap form label {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-right: 40px;
+	position: relative;
+}
+
+section#form_wrap form label:before {
+	content: "";
+	position: absolute;
+	top: -6px;
+	right: 2px;
+	background-image: url(../images/form-icons.svg);
+	background-repeat: no-repeat;
+	background-position: -120px 0px;
+	background-size: 200px 50px;
+	width: 50px;
+	height: 50px;
+}
+
+section#form_wrap form label:nth-of-type(2):before {
+	background-position: -70px 0px;
+}
+
+section#form_wrap form label:nth-of-type(3):before {
+	background-position: -20px 0px;
+}
+
+section#form_wrap form label  span {
+	color: @color_ac_text;
+}
+
+section#form_wrap form label input {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	margin-left: 5px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border: none;
+	background-color: transparent;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.49);
+	color: @color_ac_text;
+	width:calc(220px - 40px);
+	transition:all 0.3s;
+}
+
+section#form_wrap form label input:focus {
+	border-bottom: 1px solid lighten(@color_ac_text,0%);
+}
+
+section#form_wrap form label input:hover {
+	border-bottom: 1px solid lighten(@color_ac_text,30%);
+}
+
+section#form_wrap form div.controls {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+}
+
+section#form_wrap form div.controls button {
+	margin-right: 20px;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	padding-left: 35px;
+	padding-right: 35px;
+	background:linear-gradient(to bottom, rgba(81,174,67,1) 0%,rgba(64,137,53,1) 100%);
+	border: none;
+	border-radius: 15px;
+	font-size: 1.3em;
+	line-height: 100%;
+	color: @color_ac_text;
+	cursor: pointer;
+	position: relative;
+	z-index: 0;
+	transition: all 0.3s;
+}
+
+section#form_wrap form div.controls button:hover:before {
+	opacity: 1;
+}
+
+section#form_wrap form div.controls button:before {
+	content: "";
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom, rgba(64,137,53,1) 0%,rgba(81,174,67,1) 100%);
+	border-radius: 15px;
+	z-index: -1;
+	opacity: 0;
+	transition: all 0.3s;
 }
 
 header figure {
